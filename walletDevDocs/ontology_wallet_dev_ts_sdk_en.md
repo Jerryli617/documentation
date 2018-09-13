@@ -17,7 +17,7 @@ The outline of this document is as follows:
 
 ## 1 Wallet
 
-Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
+Wallet is a data storing file in JSON format. In Ontology, Wallet can not only store the digital identity but also the digital assets.
 
 [Wallet Specification](Wallet_Specification_en.md)
 
@@ -35,7 +35,7 @@ var wallet = Wallet.create('my_wallet')
 
 ## 1.2 Manager Wallet
 
- add account
+ Add account
 
 ````
 wallet.addAccount(account)
@@ -43,20 +43,20 @@ wallet.addAccount(account)
 ````
 
 # 2 Account
-Account is used to manage user's assets.
+Account is used for managing user's assets.
 
 
 ## 2.1 Create a random account
 
-We can generate a random private key with specific keypair algorithm and elliptic curve. There are three kinds of algorithms we support:
+There will be a random private key generated with specific keypair algorithm and an elliptic curve. There are three kinds of algorithms that we support currently
 
 * ECDSA
 * SM2
 * EDDSA
 
-ECDSA is the default one. You can check TS SDK API reference for more info.
+ECDSA is the default one. You can check the TS SDK API for more info.
 
-Then we can create the account and add it to the wallet.
+Then we can create an account and add it to the wallet.
 
 ````
 import {Account, Crypto} from 'ontology-ts-sdk';
@@ -85,9 +85,9 @@ wallet.addAccount(account)
 
 ## 2.2 Import an Account
 
-Users can import an account by the backup data.
+Users can import an account from the backup data.
 
-This method will check the password and the private key, an error will be thrown if they are not match.
+This method will check the password and the private key, an error will be shown if they do not match.
 
 ````
 import { Account } from 'ontology-ts-sdk'
@@ -131,7 +131,7 @@ import { utils } from 'ontology-ts-sdk'
 const mnemonic = utils.generateMnemonic(size);
 ```
 
-### Genera private key from mnemonic?
+### Generate private key from mnemonic?
 
 ```
 import {Crypto} from 'ontology-ts-sdk'
@@ -193,7 +193,7 @@ There are two kinds of native asset in Ontology: ONT and ONG.
 
 In order to transfer native asset, we can create the specific transaction and send it to the blockchain. After the transaction has been packaged in the block, the transaction will succeed.
 
-Type of native asset:
+Types of native asset:
 ````
 TOKEN_TYPE = {
   ONT : 'ONT',  //Ontology Token
@@ -203,7 +203,7 @@ TOKEN_TYPE = {
 
 ## 3.1 Query 
 
-We can use RESTful API, RPC API and WebSocket API to query the balance. Here we use RESTful API as example. And we have explorer apis that are more easy to use.
+We can use RESTful API, RPC API and WebSocket API to query the balance. Here we use RESTful API as an example. And we have explorer APIs that are easier to use.
 
 ### 3.1.1 Query Balance
 ````typescript
@@ -222,9 +222,9 @@ There is one useful api from our explorer that can be used to query all the bala
 
 ONT, ONG, claimable ONG and unbound ONG.
 
-For testnet, api host is  https://polarisexplorer.ont.io
+For testnet, address of the api host is  https://polarisexplorer.ont.io
 
-For mainnet, dapi host is https://explorer.ont.io
+For mainnet, address of the dapi host is https://explorer.ont.io
 
 ````
 /api/v1/explorer/address/balance/{address}
@@ -392,9 +392,9 @@ const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, payer, gasPrice
 |   gasLimit | Gas limit.|
 |   payer | Payer's address to pay for the transaction gas.|
 
-## 3.4 Sign and Send transaction
+## 3.4 Sign and send transaction
 
-We use private key to sign transaction.
+We use private key to sign transactions.
 
 We can use RESTful API, RPC API, or WebSocket API to send a transaction. Here we use RESTful API as an example.
 
@@ -440,7 +440,7 @@ Then we can query the balance to check if the transaction succeeded.
 
 ## 4 Blockchain 
 
-Users can use restful api, rpc api or websocket api to access info from the blockchain.Here we use restful api for example.The result is promise.
+Users can use restful api, rpc api or websocket api to access info from the blockchain.Here we use restful api for example.The result is promising.
 
 ```
 import {RestClient} from 'ontology-ts-sdk'
@@ -475,7 +475,7 @@ rest.getAllowance(asset: string, from: Address, to: Address)
 
 ### 5.1 Register Candidate Node
 
-Make transaction to register candidate node.
+Make transaction to register as candidate node.
 
 ````
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -508,7 +508,7 @@ const tx = GovernanceTxBuilder.makeUnregisterCandidateTx(userAddr, peerPubkey, p
 
 ### 5.3 Withdraw 
 
-Make transaction to withdraw the paied ONT.
+Make transaction to withdraw the paid ONT.
 
 ```
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
